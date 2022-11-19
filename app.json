@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "futureX",
-    "slug": "futureX",
+    "slug": "futurex",
+    "owner": "henzzo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +25,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.henzzo.futurex"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "05214260-40b4-463b-a62d-309566241c86"
+      }
     }
   }
 }
