@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer, NavigationProp} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WebView, {WebViewNavigation} from "react-native-webview";
@@ -27,11 +27,12 @@ const homeStyle = StyleSheet.create({
         left: 0,
         bottom: 0,
         right: 0,
-        backgroundColor: 'rgba(255,255,255,0.999)',
+        backgroundColor: '#0089C6',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
+
 
         zIndex: 9
     },
@@ -42,8 +43,24 @@ const homeStyle = StyleSheet.create({
 
     progress: {
         position: 'absolute', marginTop: 60
-    }, intro: {
-        alignSelf: 'center', justifyContent: 'center', marginTop: 'auto', marginBottom: 'auto',
+    },
+
+    intro: {
+        alignSelf: 'center',
+        justifyContent: 'center',
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        // borderStyle: "solid",
+        // borderColor: 'red',
+        // borderWidth: 1,
+
+        display: "flex",
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '70%',
+        maxWidth: 200,
+
+
     },
 
     text: {
@@ -54,6 +71,19 @@ const homeStyle = StyleSheet.create({
 const snackStyle = StyleSheet.create({
     wrapper: {
         zIndex: 1000
+    }
+})
+
+const imgStyle = StyleSheet.create({
+    text: {
+        maxWidth: '100%',
+        width: '100%',
+        flex: 1,
+    },
+    logo: {
+        maxWidth: '100%',
+        flex: .35,
+
     }
 })
 
@@ -96,8 +126,6 @@ function HomeScreen({navigation}: any) {
         })
 
     }, [])
-
-
     // show snackbar
     useEffect(() => {
 
@@ -142,8 +170,9 @@ function HomeScreen({navigation}: any) {
         if (!webviewLoadingState) return;
 
 
+        // todo -> fix this
         if (!webviewLoadingState.loading && progress == 1) {
-            setShowSplash(false)
+            // setShowSplash(false)
         }
 
     }, [webviewLoadingState])
@@ -182,7 +211,15 @@ function HomeScreen({navigation}: any) {
             </View>
 
             <View style={homeStyle.intro}>
-                <Text style={homeStyle.text}>FutureX</Text>
+
+                <Image source={require('./assets/future-text.png')} style={imgStyle.text}
+                       resizeMode='contain'
+                />
+                <Image source={require('./assets/future-logo.png')}
+                       resizeMode='contain'
+                       style={imgStyle.logo}
+                />
+
             </View>
 
 
